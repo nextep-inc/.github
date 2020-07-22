@@ -7,20 +7,20 @@ assignees: ''
 
 ---
 
-# Describe the bug
+## Describe the bug
 
 
-# To Reproduce
+## To Reproduce
 1. Go to '...'
 2. Click on '....'
 3. Scroll down to '....'
 4. See error
 
 
-# Expected behavior
+## Expected behavior
 
 
-# Screenshots
+## Screenshots
 
 
-# Additional context
+## Additional context
