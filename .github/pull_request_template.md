@@ -1,6 +1,6 @@
-Closes #
-
 ## Summary
+
+Closes #
 
 ### Reviewers
 @nextep-inc/developers
