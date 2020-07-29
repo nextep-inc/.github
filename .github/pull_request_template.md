@@ -2,5 +2,7 @@
 
 Closes #
 
+## Screenshots
+
 ### Reviewers
 @nextep-inc/developers
