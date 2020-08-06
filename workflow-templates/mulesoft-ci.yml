@@ -41,7 +41,7 @@ jobs:
         with: 
           repositories: '[{ "id": "MuleRepository", "name": "MuleRepository", "url": "https://repository.mulesoft.org/nexus-ee/content/repositories/releases-ee/", "releases": { "enabled": "true" }, "snapshots": { "enabled": "false" } }, { "id": "nextep-cloudhub", "name": "nextep-cloudhub", "url": "https://maven.anypoint.mulesoft.com/api/v1/organizations/da41098a-2988-41b8-b2c5-efc8be6ccc96/maven", "releases": { "enabled": "true" }, "snapshots": { "enabled": "false" } }]'
           plugin_repositories: '[{ "id": "mulesoft-releases", "name": "MuleSoft Releases", "url": "https://repository.mulesoft.org/releases/"}, { "id": "mulesoft-snapshots", "name": "MuleSoft Snapshots", "url": "https://repository.mulesoft.org/snapshots/"}, { "id": "mulesoft-public", "url": "https://repository.mulesoft.org/nexus/content/repositories/releases"}]'
-          servers: '[{ "id": "MuleRepository", "username": "nextep.nexus", "password": "aBliVExE" }, { "id": "nextep-cloudhub", "username": "nextepjenkins", "password": "Nextep123" }]'
+          servers: '[{ "id": "MuleRepository", "username": "nextep.nexus", "password": "${{ secrets.MULEREPOSITORY_PASSWORD }}" }, { "id": "nextep-cloudhub", "username": "nextepjenkins", "password": "${{ secrets.NEXTEPCLOUDHUB_PASSWORD }}" }]'
           profiles: '[{ "id": "Nextep", "name": "Nextep" }]'
           
       - name: Build and Test with Maven
