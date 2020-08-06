@@ -1,0 +1,48 @@
+name: Mulesoft Continuous Integration
+
+on: [pull_request]
+
+env:
+  mule_env:  dev
+
+jobs:
+  checkEnvironment:
+    name: Check Environment
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Match Branch to Environment
+        if: github.ref == 'refs/heads/master'
+        run: |
+          echo "::set-env name=mule_env::prod"
+      - name: Check mule_env
+        run: echo $mule_env
+    
+  buildAndTest:
+    name: Build and Test
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up JDK 1.8
+        uses: actions/setup-java@v1
+        with:
+          java-version: 1.8
+      
+      - name: Cache Maven packages
+        uses: actions/cache@v2
+        with:
+          path: ~/.m2
+          key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+          restore-keys: ${{ runner.os }}-m2
+    
+      - name: maven-settings-xml-action
+        uses: whelk-io/maven-settings-xml-action@v10
+        with: 
+          repositories: '[{ "id": "MuleRepository", "name": "MuleRepository", "url": "https://repository.mulesoft.org/nexus-ee/content/repositories/releases-ee/", "releases": { "enabled": "true" }, "snapshots": { "enabled": "false" } }, { "id": "nextep-cloudhub", "name": "nextep-cloudhub", "url": "https://maven.anypoint.mulesoft.com/api/v1/organizations/da41098a-2988-41b8-b2c5-efc8be6ccc96/maven", "releases": { "enabled": "true" }, "snapshots": { "enabled": "false" } }]'
+          plugin_repositories: '[{ "id": "mulesoft-releases", "name": "MuleSoft Releases", "url": "https://repository.mulesoft.org/releases/"}, { "id": "mulesoft-snapshots", "name": "MuleSoft Snapshots", "url": "https://repository.mulesoft.org/snapshots/"}, { "id": "mulesoft-public", "url": "https://repository.mulesoft.org/nexus/content/repositories/releases"}]'
+          servers: '[{ "id": "MuleRepository", "username": "nextep.nexus", "password": "aBliVExE" }, { "id": "nextep-cloudhub", "username": "nextepjenkins", "password": "Nextep123" }]'
+          profiles: '[{ "id": "Nextep", "name": "Nextep" }]'
+          
+      - name: Build and Test with Maven
+        run: mvn -B clean verify -Denv=${{ env.mule_env }} -DsecureKey=${{ secrets.PROPERTY_ENCRYPTION_KEY }} -Danypoint.platform.gatekeeper=disabled
