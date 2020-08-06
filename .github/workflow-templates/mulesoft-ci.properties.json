@@ -1,9 +1,5 @@
 {
     "name": "Nextep Workflow",
     "description": "Nextep Mulesoft CI workflow template.",
-    "iconName": "nextep-icon",
-    "filePatterns": [
-        "pom.xml",
-        "mule-artifact.json"
-    ]
+    "iconName": "nextep-icon"
 }
