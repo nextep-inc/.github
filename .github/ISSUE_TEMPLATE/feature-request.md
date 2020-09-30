@@ -8,10 +8,9 @@ assignees: ''
 ---
 
 ## Description  
-`Who` `What` `Where` `When` `Why`
+
 
 ## Desired solution
-`How`
 
 
 ## Describe considered alternatives
