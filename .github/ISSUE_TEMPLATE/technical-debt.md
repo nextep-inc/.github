@@ -7,10 +7,10 @@ assignees: ''
 
 ---
 
-## Describe the problem
+## Description
 
 
-## Describe desired solution
+## Desired solution
 
 
 ## Additional context
