@@ -13,7 +13,4 @@ assignees: ''
 ## Desired solution
 
 
-## Describe considered alternatives
-
-
 ## Additional context
