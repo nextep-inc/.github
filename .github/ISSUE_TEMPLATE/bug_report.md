@@ -20,7 +20,4 @@ assignees: ''
 ## Expected behavior
 
 
-## Screenshots
-
-
 ## Additional context
