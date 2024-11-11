@@ -7,10 +7,8 @@ assignees: ''
 
 ---
 
-## Description  
-[Insert Description Here]
+## User Story
+As a [persona], I would like to [what], so that [why].
 
-## Desired solution
-
-
-## Additional context
+## Requirements
+- The system should...
