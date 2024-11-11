@@ -8,9 +8,5 @@ assignees: ''
 ---
 
 ## Description
-[Insert Description Here]
 
 ## Desired solution
-
-
-## Additional context
